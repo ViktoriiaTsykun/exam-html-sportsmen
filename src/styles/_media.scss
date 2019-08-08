@@ -1,0 +1,10 @@
+@media (max-width: 999px) {
+  .people {
+    width: 500px;
+  }
+
+  .people-grid {
+    grid-template: 1fr / repeat(2, 220px);
+    padding: 30px 25px 155px;
+  }
+}
