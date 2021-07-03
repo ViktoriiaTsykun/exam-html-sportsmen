@@ -1,7 +1,117 @@
-@import "utils";
-@import "fonts";
-@import "typography";
-
 body {
-  background: $c-gray;
+  margin: 0;
+}
+
+.people {
+  margin: 0 auto;
+  width: 1000px;
+}
+
+.people-grid {
+  display: grid;
+  grid-template: 1fr / repeat(4, 220px);
+  grid-column-gap: 10px;
+  padding: 30px 55px 197px;
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 271px;
+  padding: 10px 10px 6px;
+  transition: transform 1s;
+  cursor: pointer;
+}
+
+.photo {
+  width: 200px;
+  height: 200px;
+  position: relative;
+
+  & img {
+    height: 100%;
+    transition: border-radius 1s;
+    border-radius: 200px;
+  }
+}
+
+.rank {
+  height: 32px;
+  width: 32px;
+  background: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: center;
+  color: #8b0000;
+  z-index: 1;
+  position: absolute;
+  right: 10px;
+  bottom: 84px;
+  top: 84px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.name {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  color: #2f4f4f;
+  margin-top: 8px;
+}
+
+.extra {
+  visibility: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #000;
+  margin-top: 9px;
+}
+
+.sport::after {
+  content: ",";
+}
+
+.pay::before {
+  content: "$";
+}
+
+.pay::after {
+  content: "M";
+}
+
+.person:hover {
+  background: #eee;
+  border-radius: 10px;
+  z-index: 1;
+  transform: scale(1.2);
+
+  & .extra {
+    visibility: visible;
+  }
+
+  & img {
+    transition: border-radius 1s;
+    border-radius: 60px;
+  }
+}
+
+@media (max-width: 999px) {
+  .people {
+    width: 500px;
+  }
+
+  .people-grid {
+    grid-template: 1fr / repeat(2, 220px);
+    padding: 30px 25px 155px;
+  }
 }
